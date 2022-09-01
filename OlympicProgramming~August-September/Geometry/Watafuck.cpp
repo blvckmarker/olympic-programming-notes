@@ -7,12 +7,14 @@
 using namespace std;
 
 
-struct Point {
+struct Point 
+{
     double x = 0;
     int t = 0;
     int i = 0;
     Point() = default;
-    Point(double _x, int _t, int _i) {
+    Point(double _x, int _t, int _i) 
+    {
         x = _x;
         t = _t;
         i = _i;
@@ -37,18 +39,18 @@ int main()
     set<pair<int, int>> ans;
     int cnt = 0;
     for (int i = 0; i < 2 * n; ++i) {
-        if (v[i].t == 0) {
-            for (auto& x : s) {
+        if (v[i].t == 0) 
+        {
+            for (auto& x : s) 
                 ans.insert({ min(v[i].i, x), max(v[i].i, x) });
-            }
+
             s.insert(v[i].i);
         }
-        if (v[i].t == 1) {
+        if (v[i].t) 
             s.erase(v[i].i);
-        }
     }
-    for (auto& p : ans) {
+    for (auto& p : ans) 
         cout << p.first << " " << p.second << "\n";
-    }
+
     return 0;
 }
